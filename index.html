@@ -1,0 +1,17 @@
+-- ServerScriptService -> DataManager
+game.Players.PlayerAdded:Connect(function(player)
+    local leaderstats = Instance.new("Folder")
+    leaderstats.Name = "leaderstats"
+    leaderstats.Parent = player
+
+    local cash = Instance.new("IntValue")
+    cash.Name = "Cash"
+    cash.Value = 100 -- Starting cash
+    cash.Parent = leaderstats
+
+    local seeds = Instance.new("IntValue")
+    seeds.Name = "Seeds"
+    seeds.Value = 5 -- Starting seeds
+    player:WaitForChild("leaderstats") -- fallback safety
+    seeds.Parent = player -- Stored on player directly or in a stats folder
+end)
